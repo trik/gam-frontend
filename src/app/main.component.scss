@@ -1,0 +1,50 @@
+gam-main {
+  display: block;
+  height: 100%;
+
+  > .mat-drawer-container {
+    height: 100%;
+
+    > mat-sidenav {
+      .mat-list {
+        margin: 0 3px;
+      }
+      .mat-list-item {
+        font-size: 0.9em !important;
+      }
+
+      > .mat-drawer-inner-container {
+        overflow-x: hidden;
+
+        > .mat-button, > .profile {
+          margin-bottom: 1em;
+        }
+      }
+
+      .mat-list > .mat-list-item {
+        border-right: solid 3px transparent;
+        border-left: solid 3px transparent;
+
+        .mat-list-text {
+          padding-left: 0 !important;
+          transition: padding-left 0.3s ease;
+
+          span {
+            width: 0;
+            transition: width 0.3s ease;
+          }
+        }
+      }
+
+      &.open {
+        .mat-list > .mat-list-item .mat-list-text {
+          padding-left: 16px !important;
+
+          span {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}

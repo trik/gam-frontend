@@ -1,0 +1,35 @@
+<mat-menu #projectsMenu="matMenu">
+  <button *ngFor="let project of projects|async" mat-menu-item>{{ project.name }}</button>
+  <button
+      mat-menu-item
+      routerLink="/project/new"
+      i18n="projects|Add new project@@projectsAddNewProject"
+  >Add new project</button>
+</mat-menu>
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side" [class.open]="sidenavOpen|async">
+    <ng-container *ngTemplateOutlet="toggleBtnTmpl; context: {isSidenavOpen: sidenavOpen|async}"></ng-container>
+    <mat-action-list>
+      <mat-list-item routerLink="/settings" routerLinkActive="active">
+        <span matLine translate>Settings</span>
+      </mat-list-item>
+    </mat-action-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <span class="fill"></span>
+      <button mat-icon-button [matMenuTriggerFor]="projectsMenu">
+        <mat-icon>folder</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<ng-template #toggleBtnTmpl let-isSidenavOpen="isSidenavOpen">
+  <button mat-button color="accent" (click)="toggleSidenav(isSidenavOpen)">
+    <mat-icon matListIcon>menu</mat-icon>
+  </button>
+</ng-template>

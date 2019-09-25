@@ -3,7 +3,33 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiConfig: {
+    baseUrl: 'http://localhost:8000/',
+    i18nPath: 'assets/i18n',
+    login: 'auth/login',
+    logout: 'auth/logout',
+    refreshToken: 'auth/refresh_token',
+    me: 'users/me',
+    epic: {
+      base: 'epics',
+    },
+    project: {
+      base: 'projects',
+    },
+    role: {
+      base: 'roles',
+    },
+    task: {
+      base: 'tasks',
+    },
+    user: {
+      base: 'users',
+    },
+    userStory: {
+      base: 'user_stories',
+    },
+  },
 };
 
 /*
